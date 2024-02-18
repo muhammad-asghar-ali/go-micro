@@ -1,0 +1,7 @@
+go 1.21.7
+
+use (
+	./front-end
+	./broker-service
+	./authentication-service
+)
