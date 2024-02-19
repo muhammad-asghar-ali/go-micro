@@ -18,7 +18,14 @@ type (
 )
 
 func main() {
-	app := Config{}
+	conn := connectDB()
+	if conn == nil {
+		log.Panic("can't connect to database")
+	}
+	app := Config{
+		DB:     conn,
+		Models: data.New(conn),
+	}
 
 	log.Println("start authentication server at port ", webPort)
 
