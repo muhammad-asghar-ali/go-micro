@@ -31,7 +31,7 @@ func (app *Config) Broker(w http.ResponseWriter, r *http.Request) {
 func (app *Config) HandleSubmit(w http.ResponseWriter, r *http.Request) {
 	var req RequestPayload
 
-	err := app.readJSON(w, r, req)
+	err := app.readJSON(w, r, &req)
 	if err != nil {
 		app.errorJSON(w, err)
 		return

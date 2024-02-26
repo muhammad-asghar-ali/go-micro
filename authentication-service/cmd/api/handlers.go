@@ -12,7 +12,7 @@ func (app *Config) Authenticate(w http.ResponseWriter, r *http.Request) {
 		Password string `json:"password"`
 	}
 
-	err := app.readJSON(w, r, req)
+	err := app.readJSON(w, r, &req)
 	if err != nil {
 		app.errorJSON(w, err, http.StatusBadRequest)
 		return
